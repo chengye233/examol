@@ -31,7 +31,7 @@ public interface UserDao {
      * @param name
      * @return
      */
-    List<User> selectByName(String name);
+    User selectByName(String name);
 
     /**
      * 主键查
