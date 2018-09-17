@@ -10,13 +10,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../resources/css/bootstrap.css" rel="stylesheet">
+    <link href="../resources/css/floating-labels.css" rel="stylesheet">
 
 </head>
 
 <body>
-<form class="form-signin" method="post" action="login">
+<form class="form-signin" method="post" action="../user/login">
     <div class="text-center mb-4">
-        <h1 class="h2 mb-3 font-weight-normal">登陆</h1>
+        <h1 class="h1 mb-3 font-weight-normal">ExamOl</h1>
+        <h2 class="h2 mb-3 font-weight-normal">登陆</h2>
         <%--错误信息--%>
         <c:if test="${not empty errMsg}" >
             <div class="alert alert-danger" role="alert">${errMsg}</div>

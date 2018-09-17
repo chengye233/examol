@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hwxy.examol.dao.PaperDao">
+  <resultMap id="BaseResultMap" type="hwxy.examol.entity.Paper">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="true_answer" jdbcType="VARCHAR" property="trueAnswer" />
+    <result column="full_score" jdbcType="INTEGER" property="fullScore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, true_answer, full_score
+  </sql>
+
+    <!--主键查-->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from paper
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!--查所有-->
+    <select id="selectAllPaper" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from paper
+    </select>
+
+    <!--name查-->
+    <select id="selectByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from paper
+        where name like concat('%', #{name, jdbcType=VARCHAR}, '%')
+    </select>
+
+  <!--删-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from paper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <!--增-->
+  <insert id="insert" parameterType="hwxy.examol.entity.Paper">
+    insert into paper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="trueAnswer != null">
+        true_answer,
+      </if>
+      <if test="fullScore != null">
+        full_score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="trueAnswer != null">
+        #{trueAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="fullScore != null">
+        #{fullScore,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <!--改-->
+  <update id="updateByPrimaryKey" parameterType="hwxy.examol.entity.Paper">
+    update paper
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="trueAnswer != null">
+        true_answer = #{trueAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="fullScore != null">
+        full_score = #{fullScore,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>
