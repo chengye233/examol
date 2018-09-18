@@ -31,9 +31,9 @@ public class UserPageController
     public String getHomePage(HttpServletRequest request)
     {
         if (request.getSession().getAttribute("user") == null) {
-            return "user/login";
+            return "/user/login";
         }
-        return "user/home";
+        return "/user/home";
     }
 
 

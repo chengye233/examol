@@ -48,6 +48,7 @@ public class UserDaoTest extends BaseTest
     public void selectByName()
     {
         User user = userDao.selectByName("test");
+        System.out.println(user.getId());
 
     }
 

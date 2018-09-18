@@ -43,24 +43,24 @@
 
             <%--功能--%>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   href="http://example.com"
+                <a class="nav-link dropdown-toggle" href="http://example.com"
                    id="dropdown01" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     试卷
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="#">收藏</a>
-                    <a class="dropdown-item" href="#">已报名</a>
-                    <a class="dropdown-item" href="#">未考试</a>
+                    <a class="dropdown-item" href="../paper/paperAppliedPage">已报名</a>
                 </div>
             </li>
         </ul>
 
         <%--搜索试卷--%>
-        <form class="form-inline my-2 my-lg-0" method="post" action="">
+        <form class="form-inline my-2 my-lg-0" method="post" action="../paper/searchPaper">
             <input class="form-control mr-sm-2" type="text"
-                   placeholder="搜索试卷" aria-label="Search">
+                   placeholder="搜索试卷" aria-label="Search"
+                   id="keyWord" name="keyWord">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                 Search
             </button>

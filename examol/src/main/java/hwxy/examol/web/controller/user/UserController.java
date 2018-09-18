@@ -25,16 +25,14 @@ public class UserController
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     private String login(HttpServletRequest request, User user, Model model)
     {
-        System.out.println(user.getName() +"\t" +user.getPassword());
-
         User loginUser = userService.login(user);
         if (loginUser == null) {
             model.addAttribute("errMsg", "登陆失败");
             return "/user/login";
         }
-        request.getSession().setAttribute("user", user);
+        request.getSession().setAttribute("user", loginUser);
         model.addAttribute("user", loginUser);
-        return "user/home";
+        return "/user/home";
     }
 
 }

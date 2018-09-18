@@ -1,6 +1,7 @@
 package hwxy.examol.dao;
 
 import hwxy.examol.entity.Paper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -25,6 +26,15 @@ public interface PaperDao {
      * @return
      */
     Paper selectByPrimaryKey(Integer id);
+
+    /**
+     * 连表查usrId的Paper
+     * @param userId
+     * @param state
+     * @return
+     */
+    List<Paper> selectPaperByUserId(@Param("userId") Integer userId,
+                                    @Param("state") Integer state);
 
     /**
      * 改

@@ -2,6 +2,7 @@ package hwxy.examol.service.impl;
 
 import hwxy.examol.dao.PaperDao;
 import hwxy.examol.entity.Paper;
+import hwxy.examol.entity.User;
 import hwxy.examol.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,4 +42,21 @@ public class PaperServiceImpl implements PaperService
         List<Paper> paperList = paperDao.selectAllPaper();
         return paperList;
     }
+
+    /**
+     * 连表查 userId, state=0
+     *
+     * @param user
+     * @param state
+     * @return
+     */
+    @Override
+    public List<Paper> getPaperList(User user, int state)
+    {
+        if (user == null) {
+            return null;
+        }
+        return paperDao.selectPaperByUserId(user.getId(), state);
+    }
+
 }

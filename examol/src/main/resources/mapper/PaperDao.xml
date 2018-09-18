@@ -26,6 +26,16 @@
         from paper
     </select>
 
+  <!--连表查-->
+  <select id="selectPaperByUserId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from paper join
+    (SELECT paper_id  FROM user_paper
+    WHERE user_id = #{userId} AND state = #{state}) AS user_paper
+    ON paper.id = user_paper.paper_id
+  </select>
+
     <!--name查-->
     <select id="selectByName" resultMap="BaseResultMap">
         select

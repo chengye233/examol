@@ -62,6 +62,12 @@
         <%--表格--%>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <h2>搜索结果</h2>
+
+            <%--错误信息--%>
+            <c:if test="${not empty errMsg}" >
+                <div class="alert alert-danger" role="alert">${errMsg}</div>
+            </c:if>
+
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -74,19 +80,19 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${paperList}" var="paper">
-                            <form method="post" action="">
+                            <form method="post" action="../paper/applyPaper">
                                 <tr>
                                     <th>
                                         ${paper.id}
-                                        <input type="hidden" value="${paper.id}">
+                                        <input type="hidden" name="id" value="${paper.id}">
                                     </th>
                                     <th>
                                         ${paper.name}
-                                        <input type="hidden" value="${paper.name}">
+                                        <input type="hidden" name="name" value="${paper.name}">
                                     </th>
                                     <th>
                                         ${paper.fullScore}
-                                        <input type="hidden" value="${paper.fullScore}">
+                                        <input type="hidden" name="fullScore" value="${paper.fullScore}">
                                     </th>
                                     <th>
                                         <button type="submit" class="btn btn-outline-primary btn-sm">
