@@ -25,4 +25,19 @@ public interface UserPaperService
      * @return
      */
     boolean finishExam(UserPaper userPaper);
+
+    /**
+     * 收藏
+     * @param userId
+     * @param collect
+     * @return
+     */
+    List<UserPaper> getUserPaperCollection(Integer userId, int collect);
+
+    /**
+     * 收藏
+     * @param userPaper
+     * @return
+     */
+    boolean addCollection(UserPaper userPaper);
 }

@@ -46,4 +46,13 @@ public interface UserPaperDao {
      * @return
      */
     int updateByPrimaryKey(UserPaper record);
+
+    /**
+     * 查收藏
+     * @param userId
+     * @param i
+     * @return
+     */
+    List<UserPaper> selectByUserIdAndState(@Param("userId") Integer userId,
+                                           @Param("collect") int collect);
 }

@@ -101,5 +101,34 @@ public class UserPaperServiceImpl implements UserPaperService
         return true;
     }
 
+    /**
+     * 收藏
+     *
+     * @param userId
+     * @param collect
+     * @return
+     */
+    @Override
+    public List<UserPaper> getUserPaperCollection(Integer userId, int collect)
+    {
+        return userPaperDao.selectByUserIdAndState(userId, 1);
+    }
+
+    /**
+     * 收藏
+     *
+     * @param userPaper
+     * @return
+     */
+    @Override
+    public boolean addCollection(UserPaper userPaper)
+    {
+        //TODO: 增加处理异常
+        userPaper = userPaperDao.selectByPrimaryKey(userPaper.getId());
+        userPaper.setCollect(1);
+        userPaperDao.updateByPrimaryKey(userPaper);
+        return true;
+    }
+
 
 }

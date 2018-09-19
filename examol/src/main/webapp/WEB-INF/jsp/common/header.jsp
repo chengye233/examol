@@ -50,7 +50,7 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">收藏</a>
+                    <a class="dropdown-item" href="../paper/paperCollectionPage">收藏</a>
                     <a class="dropdown-item" href="../paper/paperAppliedPage">已报名</a>
                 </div>
             </li>

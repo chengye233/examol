@@ -75,7 +75,7 @@
         <ul class="list-group list-group-flush">
             <c:forEach items="${finishedPaperList}" var="userPaper">
                 <li class="list-group-item">
-                    <form method="post" action="">
+                    <form method="post" action="../paper/collectPaper">
                         <input type="hidden" name="id" value="${userPaper.id}" />
                         <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
                              alt="" class="mr-2 rounded">

@@ -37,6 +37,21 @@
     </where>
   </select>
 
+  <!--查收藏-->
+  <select id="selectByUserIdAndState"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_paper
+    <where>
+      <if test="userId != null">
+        and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="collect != null">
+        and collect = #{collect, jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+
   <!--用户试卷查-->
   <select id="selectByUserIdAndPaperId" resultMap="BaseResultMap">
     select

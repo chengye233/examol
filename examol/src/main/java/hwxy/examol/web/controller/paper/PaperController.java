@@ -75,7 +75,7 @@ public class PaperController
         //失败
         if (!userPaperService.addUserPaper(userPaper)) {
             model.addAttribute("errMsg", "报名失败!");
-            return "/paperList";
+            return "paper/paperList";
         }
         List<Paper> appliedPaperList = paperService.getPaperList(user, 0);
         model.addAttribute("appliedPaperList", appliedPaperList);
@@ -148,6 +148,32 @@ public class PaperController
         //成功 转到已报名试卷页面
         return "/paper/paperApplied";
 
+    }
+
+
+    /**
+     * 收藏
+     * @param userPaper
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/collectPaper", method = RequestMethod.POST)
+    private String collectPaper(HttpServletRequest request, UserPaper userPaper, Model model)
+    {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            model.addAttribute("errMsg", "请登录!");
+            return "/user/login";
+        }
+        //失败
+        if (!userPaperService.addCollection(userPaper)) {
+            model.addAttribute("errMsg", "报名失败!");
+            return "paper/paperList";
+        }
+        List<UserPaper> collectedPaperList = userPaperService.getUserPaperCollection(user.getId(), 1);
+        model.addAttribute("collectedPaperList", collectedPaperList);
+        //成功 转到已报名试卷页面
+        return "/paper/paperCollection";
     }
 
 }

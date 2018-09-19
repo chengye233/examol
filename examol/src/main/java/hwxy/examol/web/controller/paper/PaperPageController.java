@@ -59,5 +59,22 @@ public class PaperPageController
     }
 
 
+    /**
+     * 点击收藏
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/paperCollectionPage")
+    private String getPaperCollectionPage(HttpServletRequest request, Model model)
+    {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            model.addAttribute("errMsg", "未登录!");
+            return "/user/login";
+        }
+        List<UserPaper> collectedPaperList = userPaperService.getUserPaperCollection(user.getId(), 1);
+        model.addAttribute("collectedPaperList", collectedPaperList);
+        return "/paper/paperCollection";
+    }
 
 }
