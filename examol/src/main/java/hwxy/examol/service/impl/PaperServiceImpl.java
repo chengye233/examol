@@ -59,4 +59,16 @@ public class PaperServiceImpl implements PaperService
         return paperDao.selectPaperByUserId(user.getId(), state);
     }
 
+    /**
+     * id查Paper
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public Paper getPaper(Integer id)
+    {
+        return paperDao.selectByPrimaryKey(id);
+    }
+
 }

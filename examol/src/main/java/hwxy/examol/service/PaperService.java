@@ -29,4 +29,10 @@ public interface PaperService
     List<Paper> getPaperList(User user, int state);
 
 
+    /**
+     * id查Paper
+     * @param id
+     * @return
+     */
+    Paper getPaper(Integer id);
 }

@@ -26,6 +26,10 @@
     <%--未考式--%>
     <div class="my-3 p-3 bg-white rounded shadow-sm">
         <h6 class="border-bottom border-gray pb-2 mb-0">未考式</h6>
+        <%--错误信息--%>
+        <c:if test="${not empty errMsg}" >
+            <div class="alert alert-danger" role="alert">${errMsg}</div>
+        </c:if>
         <ul class="list-group list-group-flush">
             <c:forEach items="${appliedPaperList}" var="paper">
                 <li class="list-group-item">
@@ -64,25 +68,34 @@
     <%--已考试--%>
     <div class="my-3 p-3 bg-white rounded shadow-sm">
         <h6 class="border-bottom border-gray pb-2 mb-0">已考试</h6>
+        <%--错误信息--%>
+        <c:if test="${not empty errMsg}" >
+            <div class="alert alert-danger" role="alert">${errMsg}</div>
+        </c:if>
         <ul class="list-group list-group-flush">
-            <c:forEach items="${finishedPaperList}" var="paper">
+            <c:forEach items="${finishedPaperList}" var="userPaper">
                 <li class="list-group-item">
-                    <input type="hidden" name="id" value="${paper.id}" />
-                    <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
-                         alt="" class="mr-2 rounded">
-                    试卷名&总分:
-                    <a href="#" class="btn btn-info btn-sm disabled"
-                       role="button" aria-disabled="true">
-                            ${paper.id}
-                    </a>
-                    <a href="#" class="btn btn-primary btn-sm disabled"
-                       role="button" aria-disabled="true">
-                            ${paper.name}
-                    </a>
-                    <a href="#" class="btn btn-secondary btn-sm disabled"
-                       role="button" aria-disabled="true">
-                            ${paper.fullScore}
-                    </a>
+                    <form method="post" action="">
+                        <input type="hidden" name="id" value="${userPaper.id}" />
+                        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
+                             alt="" class="mr-2 rounded">
+                        试卷&得分&答案:
+                        <a href="#" class="btn btn-info btn-sm disabled"
+                           role="button" aria-disabled="true">
+                                ${userPaper.paperName}
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-sm disabled"
+                           role="button" aria-disabled="true">
+                                ${userPaper.examScore}
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-sm disabled"
+                           role="button" aria-disabled="true">
+                                ${userPaper.examAnswer}
+                        </a>
+                        <button type="submit" class="btn btn-outline-warning btn-sm float-right">
+                            收藏
+                        </button>
+                    </form>
                 </li>
             </c:forEach>
         </ul>
@@ -93,6 +106,9 @@
         </small>
     </div>
 </main>
+
+<%--底部--%>
+<jsp:include page="../common/footer.jsp" flush="true" />
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

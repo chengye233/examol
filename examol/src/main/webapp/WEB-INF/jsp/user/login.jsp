@@ -26,12 +26,12 @@
     </div>
 
     <div class="form-label-group">
-        <input type="text" name="name" id="name" class="form-control" placeholder="用户名" required autofocus>
+        <input type="text" name="name" id="name" class="form-control" placeholder="用户名" required autofocus />
         <label for="name">用户名</label>
     </div>
 
     <div class="form-label-group">
-        <input type="password" name="password" id="password" class="form-control" placeholder="密码" required>
+        <input type="password" name="password" id="password" class="form-control" placeholder="密码" required />
         <label for="password">密码</label>
     </div>
 

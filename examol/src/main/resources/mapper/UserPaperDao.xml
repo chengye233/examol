@@ -11,7 +11,7 @@
     <result column="exam_score" jdbcType="INTEGER" property="examScore" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, paper_id, exam_answer, `state`, `collect`, exam_score
+    id, user_id, paper_id, exam_answer, `state`, `collect`, exam_score, paper_name
   </sql>
 
   <!--主键查-->
@@ -53,6 +53,7 @@
         and state = #{state, jdbcType=INTEGER}
       </if>
     </where>
+    limit 1
   </select>
 
   <!--删-->
@@ -86,6 +87,9 @@
       <if test="examScore != null">
         exam_score,
       </if>
+      <if test="paperName != null">
+        paper_name
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -108,6 +112,9 @@
       </if>
       <if test="examScore != null">
         #{examScore,jdbcType=INTEGER},
+      </if>
+      <if test="paperName != null">
+        #{paperName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

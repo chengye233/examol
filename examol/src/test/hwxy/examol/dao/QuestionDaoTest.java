@@ -5,6 +5,8 @@ import hwxy.examol.entity.Question;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class QuestionDaoTest extends BaseTest
@@ -21,6 +23,12 @@ public class QuestionDaoTest extends BaseTest
     public void insert()
     {
         Question question = new Question();
+        question.setTitle("test4");
+        question.setAnswer("A");
+        question.setOption("A.不是B B.是A C.不是C");
+        question.setScore(25);
+        int line = questionDao.insert(question);
+        assertEquals(1, line);
     }
 
     @Test
@@ -44,17 +52,20 @@ public class QuestionDaoTest extends BaseTest
     }
 
     @Test
-    public void selectByPrimaryKey1()
-    {
-    }
-
-    @Test
     public void selectByTitle()
     {
     }
 
+
     @Test
-    public void updateByPrimaryKey1()
+    public void selectByPaperId()
     {
+        List<Question> questionList = questionDao.selectByPaperId(1);
+        for (Question question : questionList)
+        {
+            System.out.println(question.getId());
+
+        }
     }
+
 }

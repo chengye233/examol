@@ -53,7 +53,7 @@ public class PaperPageController
         //TODO: 查Paper
         List<Paper> appliedPaperList = paperService.getPaperList(user, 0);
         model.addAttribute("appliedPaperList", appliedPaperList);
-        List<Paper> finishedPaperList = paperService.getPaperList(user, 1);
+        List<UserPaper> finishedPaperList = userPaperService.getUserPaperList(user.getId(), 1);
         model.addAttribute("finishedPaperList", finishedPaperList);
         return "/paper/paperApplied";
     }
