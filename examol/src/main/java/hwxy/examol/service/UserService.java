@@ -14,9 +14,16 @@ public interface UserService
 
     /**
      * 登陆获取用户
-     * @param userName
-     * @param password
+     * @param
+     * @param
      * @return
      */
     User login(User user);
+
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
+    boolean register(User user);
 }

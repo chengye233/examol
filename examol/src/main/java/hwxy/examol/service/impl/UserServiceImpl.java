@@ -57,4 +57,27 @@ public class UserServiceImpl implements UserService
         }
         return loginUser;
     }
+
+    /**
+     * 注册
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean register(User user)
+    {
+        //TODO: 正则
+        if (user.getName() == null || user.getPassword() == null ||
+                user.getEmail() == null) {
+            return false;
+        }
+        //重名
+        User registerUser = userDao.selectByName(user.getName());
+        if (registerUser != null) {
+            return false;
+        }
+        userDao.insert(user);
+        return true;
+    }
 }

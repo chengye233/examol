@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UserPageController
 {
     /**
-     * 跳转到login.html.jsp
+     * 跳转到login.jsp
      * @return
      */
     @RequestMapping(value = "/loginPage")
@@ -36,5 +36,15 @@ public class UserPageController
         return "/user/home";
     }
 
+
+    /**
+     * 跳转到register.jsp
+     * @return
+     */
+    @RequestMapping(value = "/registerPage")
+    public String getRegisterPage()
+    {
+        return "user/register";
+    }
 
 }

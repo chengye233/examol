@@ -32,7 +32,30 @@ public class UserController
         }
         request.getSession().setAttribute("user", loginUser);
         model.addAttribute("user", loginUser);
-        return "/user/home";
+        //普通用户
+        if (loginUser.getType() == 0) {
+            return "/user/home";
+        }
+        //管理员
+        else {
+            return "/admin/home";
+        }
+    }
+
+    /**
+     * 用户注册
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    private String register(HttpServletRequest request, User user, Model model)
+    {
+        if (!userService.register(user)) {
+            model.addAttribute("errMsg", "注册失败");
+            return "/user/register";
+        }
+        model.addAttribute("errMsg", "注册成功!");
+        return "/user/login";
     }
 
 }
