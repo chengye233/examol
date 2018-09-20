@@ -51,60 +51,53 @@
                                 ${userPaper.examScore}
                         </a>
 
-                        <button type="submit" class="btn btn-outline-primary btn-sm float-right">
-                            取消收藏
-                        </button>
+                        <%--<button type="submit" class="btn btn-outline-primary btn-sm float-right">--%>
+                            <%--取消收藏--%>
+                        <%--</button>--%>
                     </form>
                 </li>
             </c:forEach>
         </ul>
 
-        <%--底部链接--%>
-        <small class="d-block text-right mt-3">
-            <a href="#">待开发</a>
-        </small>
     </div>
 
-    <%--已考试--%>
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">试题收藏</h6>
-        <%--错误信息--%>
-        <c:if test="${not empty errMsg}" >
-            <div class="alert alert-danger" role="alert">${errMsg}</div>
-        </c:if>
-        <ul class="list-group list-group-flush">
-            <c:forEach items="${collectedPaperQuestionList}" var="question">
-                <li class="list-group-item">
-                    <form method="post" action="#">
-                        <input type="hidden" name="id" value="${question.id}" />
-                        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"
-                             alt="" class="mr-2 rounded">
-                        试卷&得分&答案:
-                        <a href="#" class="btn btn-info btn-sm disabled"
-                           role="button" aria-disabled="true">
-                                ${question.paperName}
-                        </a>
-                        <a href="#" class="btn btn-secondary btn-sm disabled"
-                           role="button" aria-disabled="true">
-                                ${question.examScore}
-                        </a>
-                        <a href="#" class="btn btn-secondary btn-sm disabled"
-                           role="button" aria-disabled="true">
-                                ${question.examAnswer}
-                        </a>
-                        <button type="submit" class="btn btn-outline-warning btn-sm float-right">
-                            取消收藏
-                        </button>
-                    </form>
-                </li>
-            </c:forEach>
-        </ul>
+    <%--试题--%>
+    <%--<div class="my-3 p-3 bg-white rounded shadow-sm">--%>
+        <%--<h6 class="border-bottom border-gray pb-2 mb-0">试题收藏</h6>--%>
+        <%--&lt;%&ndash;错误信息&ndash;%&gt;--%>
+        <%--<c:if test="${not empty errMsg}" >--%>
+            <%--<div class="alert alert-danger" role="alert">${errMsg}</div>--%>
+        <%--</c:if>--%>
+        <%--<ul class="list-group list-group-flush">--%>
+            <%--<c:forEach items="${collectedPaperQuestionList}" var="question">--%>
+                <%--<li class="list-group-item">--%>
+                    <%--<form method="post" action="#">--%>
+                        <%--<input type="hidden" name="id" value="${question.id}" />--%>
+                        <%--<img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1"--%>
+                             <%--alt="" class="mr-2 rounded">--%>
+                        <%--试卷&得分&答案:--%>
+                        <%--<a href="#" class="btn btn-info btn-sm disabled"--%>
+                           <%--role="button" aria-disabled="true">--%>
+                                <%--${question.paperName}--%>
+                        <%--</a>--%>
+                        <%--<a href="#" class="btn btn-secondary btn-sm disabled"--%>
+                           <%--role="button" aria-disabled="true">--%>
+                                <%--${question.examScore}--%>
+                        <%--</a>--%>
+                        <%--<a href="#" class="btn btn-secondary btn-sm disabled"--%>
+                           <%--role="button" aria-disabled="true">--%>
+                                <%--${question.examAnswer}--%>
+                        <%--</a>--%>
+                        <%--<button type="submit" class="btn btn-outline-warning btn-sm float-right">--%>
+                            <%--取消收藏--%>
+                        <%--</button>--%>
+                    <%--</form>--%>
+                <%--</li>--%>
+            <%--</c:forEach>--%>
+        <%--</ul>--%>
+    <%--</div>--%>
 
-        <%--底部链接--%>
-        <small class="d-block text-right mt-3">
-            <a href="#">待开发</a>
-        </small>
-    </div>
+
 </main>
 
 <%--底部--%>

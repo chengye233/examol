@@ -1,6 +1,8 @@
 package hwxy.examol.web.controller.user;
 
+import hwxy.examol.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -45,6 +47,22 @@ public class UserPageController
     public String getRegisterPage()
     {
         return "user/register";
+    }
+
+
+    /**
+     * changPasswordPage.jsp
+     * @return
+     */
+    @RequestMapping(value = "/changePasswordPage")
+    public String getChangPasswordPage(HttpServletRequest request, Model model)
+    {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            return "/user/login";
+        }
+        model.addAttribute("user", user);
+        return "user/changePassword";
     }
 
 }

@@ -59,10 +59,7 @@
             </c:forEach>
         </ul>
 
-        <%--底部链接--%>
-        <small class="d-block text-right mt-3">
-            <a href="#">待开发</a>
-        </small>
+
     </div>
 
     <%--已考试--%>
@@ -100,10 +97,7 @@
             </c:forEach>
         </ul>
 
-        <%--底部链接--%>
-        <small class="d-block text-right mt-3">
-            <a href="#">待开发</a>
-        </small>
+
     </div>
 </main>
 

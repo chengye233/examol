@@ -33,13 +33,13 @@
 
             <%--个人资料--%>
             <li class="nav-item">
-                <a class="nav-link" href="#">个人资料</a>
+                <a class="nav-link" href="../user/changePasswordPage">修改密码</a>
             </li>
 
             <%--消息--%>
-            <li class="nav-item">
-                <a class="nav-link" href="#">消息</a>
-            </li>
+            <%--<li class="nav-item">--%>
+                <%--<a class="nav-link" href="#">消息</a>--%>
+            <%--</li>--%>
 
             <%--功能--%>
             <li class="nav-item dropdown">

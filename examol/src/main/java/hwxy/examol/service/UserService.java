@@ -26,4 +26,11 @@ public interface UserService
      * @return
      */
     boolean register(User user);
+
+    /**
+     * 修改密码
+     * @param user
+     * @return
+     */
+    boolean changePassword(User user);
 }

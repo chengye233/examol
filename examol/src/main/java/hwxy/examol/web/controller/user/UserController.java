@@ -58,4 +58,21 @@ public class UserController
         return "/user/login";
     }
 
+
+    /**
+     * 修改密码
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    private String changePassword(HttpServletRequest request, User user, Model model)
+    {
+        if (!userService.changePassword(user)) {
+            model.addAttribute("user", user);
+            model.addAttribute("errMsg", "邮箱错误");
+            return "/user/changePassword";
+        }
+        model.addAttribute("errMsg", "修改成功!");
+        return "/user/login";
+    }
 }

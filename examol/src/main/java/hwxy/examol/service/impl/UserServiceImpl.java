@@ -80,4 +80,26 @@ public class UserServiceImpl implements UserService
         userDao.insert(user);
         return true;
     }
+
+    /**
+     * 修改密码
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean changePassword(User user)
+    {
+        String email = user.getEmail();
+        String password = user.getPassword();
+        user = userDao.selectByPrimaryKey(user.getId());
+        if (user == null || !user.getEmail().equals(email)) {
+            return false;
+        }
+        //TODO: 事务
+        user.setPassword(password);
+        userDao.updateByPrimaryKey(user);
+        return true;
+
+    }
 }
